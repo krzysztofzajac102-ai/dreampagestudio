@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+
+  <!-- Background: black rounded square (looks great as square or circle-cropped) -->
+  <rect x="0" y="0" width="1000" height="1000" rx="200" ry="200" fill="#000000"/>
+
+  <!-- ─── DreamPageStudio mark ─────────────────────────────────────────────── -->
+
+  <!-- Page frame -->
+  <rect x="320" y="330" width="302" height="393" rx="54"
+        fill="none" stroke="white" stroke-width="18"/>
+
+  <!-- 4-pointed sparkle at the top-right corner of the page frame -->
+  <!-- Center: (622, 330) = TR corner of page rect -->
+  <!-- Arm length: 60px outer, 24px inner -->
+  <path d="
+    M 622 270
+    L 646 306
+    L 682 330
+    L 646 354
+    L 622 390
+    L 598 354
+    L 562 330
+    L 598 306
+    Z"
+    fill="white"/>
+
+  <!-- Content lines inside the page (suggest website layout) -->
+  <line x1="368" y1="483" x2="548" y2="483"
+        stroke="white" stroke-width="12" stroke-linecap="round" opacity="0.38"/>
+  <line x1="368" y1="550" x2="598" y2="550"
+        stroke="white" stroke-width="12" stroke-linecap="round" opacity="0.38"/>
+
+</svg>
