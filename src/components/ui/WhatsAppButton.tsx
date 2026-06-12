@@ -4,9 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const WA_LINK = "https://wa.me/48511814165";
-/* UZUPEŁNIJ: link do Messengera Twojej strony FB — format https://m.me/NAZWA_STRONY
-   (nazwa z adresu facebook.com/NAZWA_STRONY) */
-const MESSENGER_LINK = "https://m.me/dreampagestudio";
+const MESSENGER_LINK = "https://m.me/1195093887010857";
 
 const trackLead = () => {
   if (typeof window !== "undefined" && (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq)
