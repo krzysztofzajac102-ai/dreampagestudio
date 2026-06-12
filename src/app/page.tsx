@@ -4,6 +4,7 @@ import Statement from "@/components/sections/Statement";
 import FeatureColumns from "@/components/sections/FeatureColumns";
 import Showcase from "@/components/sections/Showcase";
 import Portfolio from "@/components/sections/Portfolio";
+import LeadForm from "@/components/sections/LeadForm";
 import Offer from "@/components/sections/Offer";
 import FAQ from "@/components/sections/FAQ";
 import CTAFooter from "@/components/sections/CTAFooter";
@@ -24,6 +25,7 @@ export default function Home() {
       <FeatureColumns />
       <Showcase />
       <Portfolio />
+      <LeadForm />
       <Offer />
       <FAQ />
       <CTAFooter />
