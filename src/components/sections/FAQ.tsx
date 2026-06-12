@@ -2,6 +2,7 @@
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
+import FloatCube from "@/components/ui/FloatCube";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -45,22 +46,22 @@ function FAQItem({ q, a, i, isInView }: { q: string; a: string; i: number; isInV
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: 0.08 + i * 0.07, duration: 0.5, ease: EASE }}
       className="border-b last:border-0"
-      style={{ borderColor: "rgba(255,255,255,0.07)" }}
+      style={{ borderColor: "var(--hairline)" }}
     >
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 text-left gap-4 cursor-pointer"
       >
-        <span className="text-white/80 font-medium text-[15px] leading-snug">{q}</span>
+        <span className="text-[var(--ink)]/85 font-medium text-[15px] leading-snug">{q}</span>
         <span
           className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-colors duration-200"
           style={{
-            border: "1px solid rgba(255,255,255,0.12)",
+            border: "1px solid rgba(255,255,255,0.2)",
             background: open ? "rgba(255,255,255,0.08)" : "transparent",
           }}
         >
           <svg
-            className="w-3 h-3 text-white/50 transition-transform duration-300"
+            className="w-3 h-3 text-[var(--ink)]/60 transition-transform duration-300"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -81,7 +82,7 @@ function FAQItem({ q, a, i, isInView }: { q: string; a: string; i: number; isInV
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
             className="overflow-hidden"
           >
-            <p className="pb-5 text-white/40 leading-relaxed text-sm">{a}</p>
+            <p className="pb-5 text-[var(--ink)]/55 leading-relaxed text-sm">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -94,7 +95,16 @@ export default function FAQ() {
   const isInView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section ref={ref} id="faq" className="py-24 md:py-32 px-6 bg-black">
+    <section
+      ref={ref}
+      id="faq"
+      className="relative py-24 md:py-32 px-6 overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(180deg, #0e0f1e 0%, #0a0a14 25%, #0a0a14 75%, #0e0f1e 100%)",
+      }}
+    >
+      <FloatCube className="absolute right-[12%] top-24 hidden lg:block" size={42} variant="cyan" duration={14} />
       <div className="max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
@@ -102,13 +112,13 @@ export default function FAQ() {
           transition={{ duration: 0.55, ease: EASE }}
           className="mb-16"
         >
-          <p className="text-[11px] text-white/25 font-semibold uppercase tracking-[0.25em] mb-4">
+          <p className="text-[11px] text-[var(--ink)]/45 font-semibold uppercase tracking-[0.25em] mb-4">
             FAQ
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+          <h2 className="text-4xl md:text-5xl font-medium tracking-[-0.03em] text-[var(--ink)]">
             Masz pytania?
             <br />
-            <span className="text-white/35">Mam odpowiedzi.</span>
+            <span className="text-[var(--ink)]/40">Mam odpowiedzi.</span>
           </h2>
         </motion.div>
 

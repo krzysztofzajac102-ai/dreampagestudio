@@ -1,47 +1,61 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #080b14;
-  --color-foreground: #ffffff;
+  --color-background: #0a0a14;
+  --color-foreground: #f4f6fb;
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 :root {
-  --background: #080b14;
-  --foreground: #ffffff;
+  --background: #0a0a14;
+  --foreground: #f4f6fb;
+  /* --ink jest używany jako kolor tekstu w całym projekcie —
+     w ciemnym motywie wskazuje na jasny kolor */
+  --ink: #f4f6fb;
+  --ink-60: rgba(244, 246, 251, 0.6);
+  --ink-40: rgba(244, 246, 251, 0.4);
+  --hairline: rgba(255, 255, 255, 0.1);
+  /* tła sekcji — subtelna pulsacja między dwoma odcieniami */
+  --bg-deep: #0a0a14;
+  --bg-soft: #0e0f1e;
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+/* scroll-behavior: smooth usunięte — płynny scroll obsługuje Lenis (SmoothScroll.tsx) */
+
+/* overflow-x: clip zamiast hidden — nie tworzy scroll containera, więc nie psuje position: sticky */
+html, body {
+  overflow-x: clip;
 }
 
 body {
-  background: #080b14;
-  color: #ffffff;
+  background: #0a0a14;
+  color: #f4f6fb;
   font-family: var(--font-geist-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes hero-assembled {
-  0%   { opacity: 1; transform: scale(1); }
-  40%  { opacity: 1; transform: scale(1); }
-  50%  { opacity: 0; transform: scale(1.05); }
-  90%  { opacity: 0; transform: scale(1.05); }
-  100% { opacity: 1; transform: scale(1); }
+::selection {
+  background: #6366f1;
+  color: #ffffff;
 }
 
-@keyframes hero-exploded {
-  0%   { opacity: 0; transform: scale(0.95); }
-  40%  { opacity: 0; transform: scale(0.95); }
-  50%  { opacity: 1; transform: scale(1); }
-  90%  { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(0.95); }
+/* Kostki 3D (FloatCube) */
+@keyframes fc-spin {
+  0%   { transform: rotateX(-18deg) rotateY(0deg); }
+  100% { transform: rotateX(-18deg) rotateY(360deg); }
+}
+@keyframes fc-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@keyframes fc-shadow {
+  0%, 100% { transform: scaleX(1); opacity: 1; }
+  50%      { transform: scaleX(0.78); opacity: 0.55; }
 }
 
 @media (prefers-reduced-motion: reduce) {

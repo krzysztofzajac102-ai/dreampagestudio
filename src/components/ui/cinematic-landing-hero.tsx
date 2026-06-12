@@ -231,9 +231,9 @@ export default function CinematicHero({ className }: { className?: string }) {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=7000",
+          end: "+=4000",
           pin: true,
-          scrub: 1,
+          scrub: 0.4,
           anticipatePin: 1,
         },
       })
@@ -253,10 +253,10 @@ export default function CinematicHero({ className }: { className?: string }) {
           { y: 0, autoAlpha: 1, scale: 1, rotationZ: 0, ease: "back.out(1.4)", duration: 1.4, stagger: 0.18 }, "-=1.8")
         .fromTo(".card-left-text", { x: -40, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "power4.out", duration: 1.4 }, "-=1.4")
         .fromTo(".card-right-text", { x: 40, autoAlpha: 0, scale: 0.85 }, { x: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 1.4 }, "<")
-        .to({}, { duration: 2.5 })
+        .to({}, { duration: 1.2 })
         .set(".hero-text-wrapper", { autoAlpha: 0 })
         .set(".cta-wrapper", { autoAlpha: 1 })
-        .to({}, { duration: 1.5 })
+        .to({}, { duration: 0.8 })
         .to([".mockup-scroll-wrapper", ".floating-badge", ".card-left-text", ".card-right-text"],
           { scale: 0.92, y: -40, z: -150, autoAlpha: 0, ease: "power3.in", duration: 1.1, stagger: 0.04 })
         .to(".main-card", {

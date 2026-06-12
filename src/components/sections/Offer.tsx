@@ -2,6 +2,7 @@
 
 import { motion, useInView, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
+import FloatCube from "@/components/ui/FloatCube";
 
 const WA_LINK = "https://wa.me/48511814165";
 
@@ -52,16 +53,13 @@ export default function Offer() {
     <section
       ref={sectionRef}
       id="oferta"
-      className="relative py-24 md:py-32 px-6 bg-black overflow-hidden"
+      className="relative py-24 md:py-32 px-6 overflow-hidden"
+      style={{ background: "#0e0f1e" }}
     >
       <style dangerouslySetInnerHTML={{ __html: INJECTED }} />
 
-      {/* Ambient */}
-      <div
-        className="offer-glow-pulse absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(255,255,255,0.025) 0%, transparent 65%)" }}
-        aria-hidden="true"
-      />
+      <FloatCube className="absolute left-[10%] top-28 hidden lg:block" size={52} variant="indigo" delay={0.4} />
+      <FloatCube className="absolute right-[9%] bottom-24 hidden lg:block" size={34} variant="ink" delay={1.8} duration={13} />
 
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
@@ -71,16 +69,13 @@ export default function Offer() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
-          <p className="text-[11px] text-white/25 font-semibold uppercase tracking-[0.25em] mb-4">
+          <p className="text-[11px] text-[var(--ink)]/45 font-semibold uppercase tracking-[0.25em] mb-4">
             Cennik
           </p>
-          <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white"
-            style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
-          >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-[-0.03em] text-[var(--ink)]">
             Jeden pakiet.
             <br />
-            <span className="text-white/40">Wszystko w środku.</span>
+            <span className="text-[var(--ink)]/40">Wszystko w środku.</span>
           </h2>
         </motion.div>
 
@@ -97,9 +92,9 @@ export default function Offer() {
               rotateX,
               rotateY,
               transformStyle: "preserve-3d",
-              background: "linear-gradient(160deg, #1c1c1e 0%, #0a0a0a 100%)",
+              background: "linear-gradient(160deg, #161a2e 0%, #0d1020 100%)",
               border: "1px solid rgba(255,255,255,0.08)",
-              boxShadow: "0 40px 80px -20px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.1)",
+              boxShadow: "0 40px 80px -24px rgba(13,16,32,0.45), inset 0 1px 0 rgba(255,255,255,0.1)",
             }}
             onMouseMove={(e) => {
               if (!cardRef.current) return;
@@ -141,10 +136,7 @@ export default function Offer() {
                 <p className="text-white/30 text-xs uppercase tracking-widest mb-2">
                   jednorazowa płatność
                 </p>
-                <div
-                  className="text-6xl font-bold text-white tracking-tight leading-none"
-                  style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
-                >
+                <div className="text-6xl font-semibold text-white tracking-tight leading-none">
                   od 599 zł
                 </div>
                 <p className="text-white/25 text-xs mt-2">cena finalna, bez niespodzianek</p>

@@ -1,20 +1,30 @@
-import CinematicHero from "@/components/ui/cinematic-landing-hero";
-import CyberneticBentoGrid from "@/components/ui/cybernetic-bento-grid";
-import Features from "@/components/sections/Features";
+import Navbar from "@/components/ui/Navbar";
+import HeroProcess from "@/components/sections/HeroProcess";
+import Statement from "@/components/sections/Statement";
+import FeatureColumns from "@/components/sections/FeatureColumns";
+import Showcase from "@/components/sections/Showcase";
+import Portfolio from "@/components/sections/Portfolio";
 import Offer from "@/components/sections/Offer";
-import WhyMe from "@/components/sections/WhyMe";
 import FAQ from "@/components/sections/FAQ";
 import CTAFooter from "@/components/sections/CTAFooter";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import SmoothScroll from "@/components/ui/SmoothScroll";
+import CursorGlow from "@/components/ui/CursorGlow";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
 export default function Home() {
   return (
-    <main className="overflow-x-hidden">
-      <CinematicHero />
-      <CyberneticBentoGrid />
-      <Features />
+    <main>
+      <SmoothScroll />
+      <CursorGlow />
+      <ScrollProgress />
+      <Navbar />
+      <HeroProcess />
+      <Statement />
+      <FeatureColumns />
+      <Showcase />
+      <Portfolio />
       <Offer />
-      <WhyMe />
       <FAQ />
       <CTAFooter />
       <WhatsAppButton />
